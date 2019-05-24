@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import './style.css';
-import Image from './myImage.jpg';
 import printMe from './print.js';
 
 function component() {
@@ -13,13 +12,18 @@ function component() {
   btn.innerHTML = 'CLICK ME';
   btn.onclick = printMe;
 
-  var myImg = new Image();
-  myImg.src = Image;
+  console.error('this is error');
 
-  element.appendChild(myImg);
   element.appendChild(btn);
 
   return element;
 }
 
 document.body.appendChild(component());
+
+if (module.hot) {
+  module.hot.accept('./print.js', function() {
+    console.log('Accepting the updated printMe module!');
+    print();
+  })
+}
