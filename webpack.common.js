@@ -1,34 +1,21 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const WebpackManifestPlugin = require('webpack-manifest-plugin');
-const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  // entry: './src/index.js',
-  // 配置多入口
   entry: {
     app: './src/index.js'
   },
   output: {
-    // filename: 'bundle.js',
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Output managment'
-    }),
-    new WebpackManifestPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+      title: 'webpacked product'
+    })
   ],
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './dist',
-    hot: true
-  },
   module: {
     rules: [
       {
