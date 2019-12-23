@@ -1,19 +1,14 @@
-import _ from 'lodash';
+import printMe from './print.js';
+import { cube } from './math.js';
 import './style.css';
-import Image from './myImage.jpg';
 
 function component() {
-  var element = document.createElement('div');
-
-  element.innerHTML = _.join(['hello','webpack'], '');
+  var element = document.createElement('pre');
+  element.innerHTML = [
+    'hello webpack',
+    '5cube' + cube(5)
+  ].join('\n\n');
   element.classList.add('hello');
-
-  var myImg = new Image();
-  myImg.src = Image;
-
-  element.appendChild(myImg);
-
   return element;
 }
-
 document.body.appendChild(component());
