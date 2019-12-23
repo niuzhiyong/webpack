@@ -1,6 +1,6 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // 自动生成引入打包好的js的html文件
+const ExtractTextPlugin = require('extract-text-webpack-plugin'); // css文件独立出去 更快加载
 const webpack = require('webpack');
 
 module.exports = {
@@ -9,7 +9,7 @@ module.exports = {
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, '../dist')
   },
   module: {
     rules: [
